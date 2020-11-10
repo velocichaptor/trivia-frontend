@@ -3,9 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trivia</title>
 </head>
 <body>
-    <script type="text/javascript" src="src/index.js" defer></script>
+    <link rel="stylesheet" href="index.css" />
+    <script type="text/javascript" src="lc.index.js" defer></script>
+<!-- create new quiz button -->
+<p style="text-align:center">
+    <button id="new-quiz-btn">Create a Quiz!</button>
+  </p>
+  <!-- new quiz form -->
+    <div class="create-form-div">
+        <form class="add-quiz-form">
+          <input type="text" name="name" value="" placeholder="Quiz Title" class="input-text"/>
+          <br />
+          <input type="text" name="image" value="" placeholder="Quiz image URL" class="input-text"/>
+          <br />
+          <!-- dropdown for existing categories here -->
+          <select name="categories" id="select-category">
+            <!-- <option value="<category-name>"><category-name></option> -->
+          </select><br>
+          <input type="submit" name="submit" value="Create" class="submit"/>
+        </form>
+      </div>
 </body>
 </html>
