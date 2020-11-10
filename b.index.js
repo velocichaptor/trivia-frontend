@@ -62,6 +62,7 @@ function handleNameFormListener(event){
            if(newUser.error){
                alert(newUser.error)
            }else {
+            userInfo.setAttribute('data-id', `${newUser.id}`)
             userInfo.innerHTML = `<ul><li>${newUser.name}</li>
             <li>${newUser.total_score}</li>
             </ul>`
