@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Trivia</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
 <body>
-    <script type="text/javascript" src="src/index.js" defer></script>
+    <!-- create username button -->
+    <div>
+      <button id='username'>Create New User</button>
+    </div>
+    <!--user information-->
+    <div>
+        <section id='user-info'>
+        </section>
+    </div>
+    <!-- User form input-->
+    <div>
+        <form class="user-form" type="hidden">
+            <input
+              class="username-input"
+              type="text"
+              name="name"
+              placeholder="Create a username"
+            />
+            <button class="submit-button" type="submit">Create Name</button>
+          </form>
+    </div>
+    <div class="category-container dropdown closed">
+        <h3 class="icon">Trivia Categories <span>∆</span></h2>
+        <ul class="menu">
+        </ul>
+        </ul>
+    </div>
+    <script type="text/javascript" src="b.index.js" defer></script>
 </body>
 </html>
