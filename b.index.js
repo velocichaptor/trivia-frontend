@@ -65,7 +65,8 @@ function handleNameFormListener(event){
             userInfo.setAttribute('data-id', `${newUser.id}`)
             userInfo.innerHTML = `<ul><li>${newUser.name}</li>
             <li>${newUser.total_score}</li>
-            </ul>`
+            </ul>
+            <button class="my-quizzes-button" type="button">Edit My Quizzes</button>`
             userForm.style.display = 'none'
            }
        })

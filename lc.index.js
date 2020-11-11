@@ -55,6 +55,28 @@ let data = {
     body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(console.log)
+    // .then(console.log)
     // .then(add to list of quizzes to choose from)
+}
+
+// read all my quizzes
+const myQuizBtn = document.querySelector('.my-quizzes-button')
+document.addEventListener('click', event => {
+    if(event.target.className === 'my-quizzes-button')
+    displayMyQuizzes(event.target)
+})
+
+const displayMyQuizzes = (target) => {
+    fetch('http://localhost:3000/quizzes')
+    .then(res => res.json())
+    .then(quizzes => {
+        let myQuizArray = quizzes.filter(quiz => quiz.user_id == target.parentElement.dataset.id)
+        const myQuizList = document.createElement('p')
+        const userInfo = document.querySelector('#user-info')
+        myQuizArray.forEach(quiz => {
+          myQuizList.innerHTML += `<p>${quiz.title}</p>`  
+        })
+        userInfo.append(myQuizList)
+    })
+    // display list of quizzes created
 }
