@@ -55,7 +55,9 @@ let data = {
     body: JSON.stringify(data)
     })
     .then(res => res.json())
-    // .then(console.log)
+    .then(quiz => {
+        createFormDiv.setAttribute('data-id', `${quiz.id}`)
+    })
     // .then(add to list of quizzes to choose from)
 }
 
