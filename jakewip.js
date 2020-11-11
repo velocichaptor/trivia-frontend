@@ -1,3 +1,8 @@
+// hidden form
+let writeQuestion = false;
+
+const questionBtn = document.querySelector("#new-question-button");
+const questionFormDiv = document.querySelector(".question-form-div");
 function createFormListener(){
     const form = document.querySelector('form')
     form.addEventListener('submit', function(event){
@@ -8,7 +13,6 @@ function createFormListener(){
         wronganswer1: event.target['wronganswer1'].value,
         wronganswer2: event.target['wronganswer2'].value,
         wronganswer3: event.target['wronganswer3'].value,
-        ///points: 1 //do I need this or is this default?
       }
   
       event.target.reset()
