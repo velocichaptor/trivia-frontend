@@ -1,6 +1,7 @@
 const quizDiv = qs('#show-panel')
 const quizTag = qs(".quiz")
-
+const questionDiv = qs('#question-panel')
+let ol = qs('ol')
 function fetchQuiz(){
     fetch (quizURL)
     .then(resp => resp.json())
@@ -14,25 +15,28 @@ function renderQuizzes(quiz){
             event.preventDefault()
             if (event.target.innerText.toLowerCase() === quizItem.title.toLowerCase()){
                 quizDiv.innerHTML = renderQuiz(quizItem)
+                const questionsIndex = quizItem.questions.map(question => question)
+                for(let key in questionsIndex) {
+               questionDiv.innerHTML = `<h3>${(questionsIndex[key]['ask'])}</h3>
+               <ol><li>${(questionsIndex[key]['answer'])}</li>
+               <li>${(questionsIndex[key]['wronganswer1'])}</li>
+               <li>${(questionsIndex[key]['wronganswer2'])}</li>
+               <li>${(questionsIndex[key]['wronganswer3'])}</li>
+               </ol>`;
+     
+                }
             }
         })
     });
 }
 
 
+for (let i = ol.children.length; i>=0; i++){
+    ol.appendChild(ol.children[Math.random()*i| 0]);
+}
+
 function renderQuiz(quizItem){
-    const questionsIndex = quizItem.questions.map(question => question)
-    let questions = questionsIndex.map(questions => questions.ask)
-   debugger
-  return ` <div><img src=${quizItem.url} />
-  <h2>${quizItem.title}</h2>`
-//   ${quiz.questions.map(question => {
-//     `<h3>${question.ask}</h2>
-//     <h4>${question.answer}</h4>
-//     <h4>${question.wonganswer1}</h4>
-//     <h4>${question.wronganswer2}</h4>
-//     <h4>${question.wronganswer3}</h4> `
-//   }) }
-//    </div>`
+  return ` <img src=${quizItem.url} />
+        <h2>${quizItem.title}</h2>`
 }
 

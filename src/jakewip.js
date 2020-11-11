@@ -2,6 +2,7 @@
 document.addEventListener("DOMContentLoaded",() => {
     createFormListener()
     fetchQs()
+    fetchQuizId()
 })
 let questionToggle = false;
 
@@ -14,14 +15,14 @@ function fetchQuizId() {
   fetch('http://localhost:3000/quizzes')
         .then(resp => resp.json())
         .then(quizzes => {
-          debugger
           quizzes.forEach(quiz => { 
-            quizDownOpt.innerHTML += `<option value="${quiz.id}">${quiz.title}/option>`
+            quizDownOpt.setAttribute('data-id', `${quiz.id}`)
+            quizDownOpt.innerHTML += `<option value="${quiz.id}">${quiz.title}</option>`
           //build quiz function?
           //buildQuiz(question)
         })
-      })
-    }
+      })      
+}
   
 
 function fetchQs() {
@@ -51,6 +52,7 @@ function createFormListener(){
     
     questionFormData.addEventListener('submit', function(event){
         event.preventDefault()
+      debugger
         const formData = {
             ask: event.target[0].value,
             answer: event.target[1].value,
