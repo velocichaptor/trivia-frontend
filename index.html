@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trivia</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" type="text/css" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/index.css" />
 </head>
 <body>
     <!-- create username button -->
@@ -29,12 +29,12 @@
             <button class="submit-button" type="submit">Create Name</button>
           </form>
     </div>
-    <div class="category-container dropdown closed">
-        <h3 class="icon">Trivia Categories <span>∆</span></h2>
-        <ul class="menu">
-        </ul>
-        </ul>
-    </div>
+    <div id="list-panel">
+        <h3>Trivia Categories </h2>
+		<ul id="list">
+		</ul>
+	</div>
+
 <!-- create new quiz button -->
 <div>
 <p style="text-align:center">
@@ -42,21 +42,26 @@
   </p>
 </div>
   <!-- new quiz form -->
-    <div class="create-form-div">
-        <form class="add-quiz-form">
-          <input type="text" name="name" value="" placeholder="Quiz Title" class="input-text"/>
-          <br />
-          <input type="text" name="image" value="" placeholder="Quiz image URL" class="input-text"/>
-          <br />
-          <!-- dropdown for existing categories here -->
-          <select name="categories" id="select-category">
+<div class="create-form-div">
+ <form class="add-quiz-form">
+    <input type="text" name="name" value="" placeholder="Quiz Title" class="input-text"/>
+     <br />
+    <input type="text" name="image" value="" placeholder="Quiz image URL" class="input-text"/>
+     <br />
+<!-- dropdown for existing categories here -->
+    <select name="categories" id="select-category">
             <!-- <option value="<category-name>"><category-name></option> -->
-          </select><br>
-          <input type="submit" name="submit" value="Create" class="submit"/>
-        </form>
-      </div>
-      <script type="text/javascript" src="lc.index.js" defer></script>
-      <script type="text/javascript" src="b.index.js" defer></script>
-      <script type="text/javascript" src="jakewip.js" defer></script>
+    </select><br>
+    <input type="submit" name="submit" value="Create" class="submit"/>
+ </form> 
+</div>
+<div id="show-panel">
+</div>
+
+
+<script type="text/javascript" src="src/lc.index.js" defer></script>
+<script type="text/javascript" src="src/b.index.js" defer></script>
+<script type="text/javascript" src="src/jakewip.js" defer></script>
+<script type="text/javascript" src="src/quiz.js" defer></script>
 </body>
 </html>

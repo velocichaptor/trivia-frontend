@@ -7,19 +7,23 @@ function qs(selector){
     return document.querySelector(selector)
 }
 
-let addName = false;
+let toggle = false;
 const userURL = `http://localhost:3000/users`;
 const catURL = `http://localhost:3000/categories`;
+const quizURL = `http://localhost:3000/quizzes`
 const userButton = qs('#username');
 const userForm = qs('.user-form');
 const userInfo = qs('#user-info');
-const ulTag = qs('.menu')
-let dropdown = qs('.dropdown')
+const categoryListPanel = document.querySelector('#list');
+let dropdown = qs('.dropdown');
+let categoryData 
+
 
 
 document.addEventListener('DOMContentLoaded', () =>{
-    fetchCategories()
-    handleNameFormListener()
+    fetchCategories();
+    handleNameFormListener();
+    fetchQuiz()
 
  })
 
@@ -29,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () =>{
 
  //event listnener to dipslay user creation form 
  userButton.addEventListener('click', () =>{
-    addName = !addName;
-    if (addName) {
+    toggle = !toggle;
+    if (toggle) {
         userForm.style.display = 'block';
     }else{
        userForm.style.display = 'none';
@@ -77,22 +81,47 @@ function handleNameFormListener(event){
 function fetchCategories(){
     return fetch(catURL)
     .then(resp => resp.json())
-    .then(categories=> displayCategories(categories))
-  
+    .then(categories=>{
+        categoryData = categories
+         displayCategories(categories)
+    })
 }
 
 
 function displayCategories(categories){
     categories.forEach(category =>{
-       ulTag.innerHTML += `<li>${category.title}</li>`;
-      
+        const liTag = document.createElement('li')
+        liTag.innerText = `${category.title}`
+        liTag.setAttribute("data-id", category.id)
+        liTag.setAttribute("class", 'category closed')
+        categoryListPanel.appendChild(liTag)
+
     })
 }
 
-dropdown.addEventListener('click', (e) => {
-  if (dropdown.classList.contains('closed')) {
-    dropdown.classList.remove('closed')
-  } else {
-  dropdown.classList.add('closed')    
-  }
+document.addEventListener('click', function(event){
+    if(event.target.tagName === "LI"){
+        const matchingCategory = categoryData.find(category => category.id === parseInt(event.target.dataset.id))
+        const cat = ce('ul')
+        cat.innerHTML=displayQuizTitle(matchingCategory)
+        if (event.target.className.includes('open')){
+           event.target.style = ''
+           Array.from(event.target.childNodes).forEach(node => {
+               if(node.tagName === "UL"){
+                node.remove()
+               }
+            })
+       }else if (event.target.className.includes('closed')){
+            event.target.append(cat)
+            event.target.style = 'color:#2a9d8f'
+       }
+       event.target.className.includes('closed')? event.target.className = 'category open':event.target.className = 'category closed'
+      
+    }
 })
+
+
+function displayQuizTitle(category){
+   return `<li class="quiz">${category.quizzes.map(quiz => quiz.title)}</li>`
+}
+
