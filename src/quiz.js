@@ -8,10 +8,8 @@ function fetchQuiz(){
 }
 
 function renderQuizzes(quizzes){
-    debugger
     quizzes.forEach(quiz => {
         quizTag.addEventListener('click', function(event){
-            debugger
             event.preventDefault()
             if (event.target.className.toLowerCase === "quiz"){
                 quizDiv.innerHTML = renderQuiz(quiz)
