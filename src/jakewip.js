@@ -53,8 +53,6 @@ function createFormListener(){
     questionFormData.addEventListener('submit', function(event){
         event.preventDefault()
 
-        debugger
-
         const formData = {
             ask: event.target[0].value,
             answer: event.target[1].value,
