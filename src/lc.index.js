@@ -84,36 +84,3 @@ const displayMyQuizzes = (target) => {
     })
     // display list of quizzes created
 }
-
-//delete my quizzes
-document.addEventListener('click', event => {
-    if(event.target.className === 'delete-button')
-    handleDelete(event.target)
-})
-
-const handleDelete = (target) => {
-    fetch('http://localhost:3000/quizzes')
-    .then(res => res.json())
-    .then(quizzes => {
-        let quiz = quizzes.find(quiz => quiz.id == target.dataset.id)
-        console.log(quiz)
-        deleteQuiz(quiz)
-        // remove('td')?
-    })
-}
-
-const deleteQuiz = (quiz) => {
-    fetch('http://localhost:3000/quizzes' + '/' + `${quiz.id}`, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        }, 
-        body: JSON.stringify(quiz)
-    })
-    .then(res => res.json())
-    .then(quiz => {
-        let tableRows = document.querySelector('.quiz-table-row')
-        let quizRow = tableRows.find(tr => tr.datset.id == quiz.id)
-        quizRow.remove()
-    })
-}
