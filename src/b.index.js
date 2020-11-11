@@ -15,6 +15,10 @@ const userButton = qs('#username');
 const userForm = qs('.user-form');
 const userInfo = qs('#user-info');
 const categoryListPanel = document.querySelector('#list');
+const quizDiv = qs('#show-panel');
+const quizTag = qs(".quiz");
+const questionDiv = qs('#question-panel');
+let ol = qs('ol');
 let dropdown = qs('.dropdown');
 let categoryData 
 
