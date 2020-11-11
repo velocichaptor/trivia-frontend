@@ -1,35 +1,81 @@
 // hidden form
-let writeQuestion = false;
+document.addEventListener("DOMContentLoaded",() => {
+    createFormListener()
+    fetchQs()
+})
+let questionToggle = false;
+
+const questionFormData = document.querySelector(".add-question-form")
+const quizDownOpt = document.querySelector('#select-quiz')
+
+function fetchQuizId() {
+  fetch('http://localhost:3000/quizzes')
+        .then(resp => resp.json())
+        .then(quizzes => {
+          debugger
+          quizzes.forEach(quiz => { 
+            quizDownOpt.innerHTML += `<option value="${quiz.id}">${quiz.title}/option>`
+          //build quiz function?
+          //buildQuiz(question)
+        })
+      })
+    }
+  
+
+function fetchQs() {
+fetch('http://localhost:3000/questions')
+      .then(resp => resp.json())
+      .then(json => {
+        // console.log(json)
+        //build quiz function?
+        //buildQuiz(question)
+      })
+    }
+
+const form = document.querySelector("#new-question-btn")
+form.addEventListener('click', function(event){
+    event.preventDefault()
+    questionToggle = !questionToggle;
+    if (questionToggle) {
+        questionFormData.style.display = "block"
+    } else {
+        questionFormData.style.display = "none"
+    }
+})
 
 const questionBtn = document.querySelector("#new-question-button");
 const questionFormDiv = document.querySelector(".question-form-div");
 function createFormListener(){
-    const form = document.querySelector('form')
-    form.addEventListener('submit', function(event){
-      event.preventDefault()
-      const formData = {
-        ask: event.target['ask'].value,
-        answer: event.target['answer'].value,
-        wronganswer1: event.target['wronganswer1'].value,
-        wronganswer2: event.target['wronganswer2'].value,
-        wronganswer3: event.target['wronganswer3'].value,
-      }
-  
+    
+    questionFormData.addEventListener('submit', function(event){
+        event.preventDefault()
+        const formData = {
+            ask: event.target[0].value,
+            answer: event.target[1].value,
+            wronganswer1: event.target[2].value,
+            wronganswer2: event.target[3].value,
+            wronganswer3: event.target[4].value,
+            quiz_id: event.target[5].value
+          }
+      //debugger
       event.target.reset()
-  
       const reqObj = {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          // "Accept": "application/json"
         },
         body: JSON.stringify(formData)
       }
-  
+
+      
       fetch('http://localhost:3000/questions', reqObj)
       .then(resp => resp.json())
       .then(question => {
-        //build quiz function?
-        //buildQuiz(question)
+        console.log(question)
+        
+      //   //build quiz function?
+      //   //buildQuiz(question)
+        })
       })
-    })
-  }
+    }
