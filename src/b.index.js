@@ -102,7 +102,7 @@ function displayCategories(categories){
 }
 
 document.addEventListener('click', function(event){
-    if(event.target.tagName === "LI"){
+    if(event.target.className === "category closed"){
         const matchingCategory = categoryData.find(category => category.id === parseInt(event.target.dataset.id))
         const cat = ce('ul')
         cat.innerHTML=displayQuizTitle(matchingCategory)
