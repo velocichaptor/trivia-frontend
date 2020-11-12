@@ -15,10 +15,6 @@ const userButton = qs('#username');
 const userForm = qs('.user-form');
 const userInfo = qs('#user-info');
 const categoryListPanel = document.querySelector('#list');
-const quizDiv = qs('#show-panel');
-const quizTag = qs(".quiz");
-const questionDiv = qs('#question-panel');
-let ol = qs('ol');
 let dropdown = qs('.dropdown');
 let categoryData 
 
@@ -33,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
  window.onload = function() {
     document.querySelector('.user-form').style.display = 'none';
+    // document.querySelector('.')
   };
 
  //event listnener to dipslay user creation form 
@@ -128,6 +125,10 @@ document.addEventListener('click', function(event){
 
 
 function displayQuizTitle(category){
-   return `<li class="quiz">${category.quizzes.map(quiz => quiz.title)}</li>`
+    let values = ""
+    let quizzes = category.quizzes;
+    for (const key in quizzes){values= values.concat("<li class=\"quiz\">"+ quizzes[key]['title'] + "</li>");}
+    console.log(values)
+    return values
 }
 
