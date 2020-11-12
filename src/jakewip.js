@@ -4,9 +4,11 @@ document.addEventListener("DOMContentLoaded",() => {
     fetchQs()
     fetchQuizId()
 })
-let questionToggle = false;
+
+let questionToggle = false
 
 const questionFormData = document.querySelector(".add-question-form")
+
 const quizDownOpt = document.querySelector('#select-quiz')
 
 function fetchQuizId() {
@@ -76,23 +78,30 @@ function createFormListener(){
         console.log(question)
         })
       })
+    }
 
 
 //Edit Questions
 
-// const updateQuestionBtn = document.querySelector('.my-quizzes-button')
+// const updateQuestionsBtn = document.createElement('button')
+
+// updateQuestionsBtn.innerText = "Edit Questions"
+
+// document.querySelector(myQuizTable).append(updateQuestionsBtn)
+
+
 // document.addEventListener('click', event => {
-//     if(event.target.className === 'my-quizzes-button')
+//     if(event.target === updateQuestionsBtn)
 //     questionTableRender(event.target)
 // })
 
 // const questionTableRender = (target) => {
-//     fetch('http://localhost:3000/quizzes')
+//     fetch('http://localhost:3000/questions')
 //     .then(res => res.json())
-//     .then(quizzes => {
-//         let questionTable = quizzes.filter(quiz => quiz.questions == target.parentElement.dataset.id)
+//     .then(questions => {
+//         let questionTable = questions.filter(question => question.quiz_id === parseInt(target.parentElement.dataset.id))
+//         debugger
 //         const myQuestionTable = document.createElement('table')
-//         //const userInfo = document.querySelector('#user-info')
 //         questionTable.forEach(question => {
 //           myQuestionTable.innerHTML += 
 //            `<tr><td>${question.ask}</td></tr>
@@ -103,64 +112,42 @@ function createFormListener(){
 //         //userInfo.append(myQuestionTable)
 //     })
 
-//         updateQuestionBtn.addEventListener("click", (e) => {
-
-//             editForm[0].value = question.ask
-//             editForm[1].value = question.answer
-//             editForm[2].value = question.wronganswer1
-//             editForm[3].value = question.wronganswer2
-//             editForm[4].value = question.wronganswer3
-
-//             // const hiddenInput = ce("input")
-//             // hiddenInput.setAttribute("type", "hidden")
-//             // hiddenInput.value = question.quiz_id
-//             // hiddenInput.name = "id"
-
-//             // editForm.append(hiddenInput)
-
-//         })
-
-//       editForm.addEventListener("submit", (event) => {
-//         event.preventDefault()
-
-//         // debugger
-
-//         // 
-//         fetch('http://localhost:3000/quizzes') {
-//             method: "PATCH",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify({
-//               ask: event.target[0].value,
-//               answer: event.target[1].value,
-//               wronganswer1: event.target[2].value,
-//               wronganswer2: event.target[3].value,
-//               wronganswer3: event.target[4].value
-//             })
-//             const reqObj = {
-//               method: 'POST',
-//               headers: {
-//                 'Content-Type': 'application/json',
-//                 // "Accept": "application/json"
-//               },
-//               body: JSON.stringify(formData)
-//             }
-//         })
-//         .then(res => res.json())
-//         .then(updatedQuestion => {
-
-//             const updateTr = Array.from(tbody.children).find(tr => tr.dataset.dogid == updatedQuestion.id)
-
-//             // const dogRow = tbody.children[updatedQuestion.id-1]
-//             // debugger
-
-//             updateTr.children[0].innerHTML = updatedQuestion.ask
-//             updateTr.children[1].innerHTML = updatedQuestion.answer
-//             updateTr.children[2].innerHTML = updatedQuestion.wronganswer1
-//             updateTr.children[3].innerHTML = updatedQuestion.wronganswer2
-//             updateTr.children[4].innerHTML = updatedQuestion.wronganswer3
-        
-//         })
-//       }
 //   }
+  // updateQuestionBtn.addEventListener("click", (e) => {
+
+        //     editForm[0].value = question.ask
+        //     editForm[1].value = question.answer
+        //     editForm[2].value = question.wronganswer1
+        //     editForm[3].value = question.wronganswer2
+        //     editForm[4].value = question.wronganswer3
+
+        // // //     // const hiddenInput = ce("input")
+        // // //     // hiddenInput.setAttribute("type", "hidden")
+        // // //     // hiddenInput.value = question.quiz_id
+        // // //     // hiddenInput.name = "id"
+
+        //     // editForm.append(hiddenInput)
+
+        // })
+
+      // editForm.addEventListener("submit", (event) => {
+      //   event.preventDefault()
+
+      //   // debugger
+
+      //   // 
+      //   fetch('http://localhost:3000/quizzes') {
+      //       method: "PATCH",
+      //       headers: {
+      //           "Content-Type": "application/json"
+      //       },
+      //       body: JSON.stringify({
+      //         ask: event.target[0].value,
+      //         answer: event.target[1].value,
+      //         wronganswer1: event.target[2].value,
+      //         wronganswer2: event.target[3].value,
+      //         wronganswer3: event.target[4].value
+      //       })
+      //   })
+      //   .then(res => res.json())
+      //   .then(updatedQuestion => {}
