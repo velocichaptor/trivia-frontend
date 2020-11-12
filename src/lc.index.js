@@ -45,6 +45,7 @@ let data = {
     category: createForm[2].dataset.id,
     user_id: userInfo.dataset.id
 } 
+createForm.reset()
 
     fetch('http://localhost:3000/quizzes', {
     method: 'POST',
@@ -55,10 +56,6 @@ let data = {
     body: JSON.stringify(data)
     })
     .then(res => res.json())
-    .then(quiz => {
-        createFormDiv.setAttribute('data-id', `${quiz.id}`)
-    })
-    // .then(add to list of quizzes to choose from)
 }
 
 // read all my quizzes
@@ -68,17 +65,54 @@ document.addEventListener('click', event => {
     displayMyQuizzes(event.target)
 })
 
+let myQuizTable;
+
 const displayMyQuizzes = (target) => {
     fetch('http://localhost:3000/quizzes')
     .then(res => res.json())
     .then(quizzes => {
         let myQuizArray = quizzes.filter(quiz => quiz.user_id == target.parentElement.dataset.id)
-        const myQuizList = document.createElement('p')
-        const userInfo = document.querySelector('#user-info')
         myQuizArray.forEach(quiz => {
-          myQuizList.innerHTML += `<p>${quiz.title}</p>`  
+            myQuizTable = document.createElement('table')
+            myQuizTable.setAttribute('data-id', `${quiz.id}`)
+          myQuizTable.innerHTML += 
+           `<tr><td>${quiz.title}</td></tr>
+            <tr><td><img src=${quiz.url}></td></tr>
+            <tr><td><button data-id="${quiz.id}" class="delete-button">Delete?</button></td></tr>
+            <tr><td><button data-id="${quiz.id}" class="edit-button">Edit?</button></td></tr>
+            </tr>`  
         })
-        userInfo.append(myQuizList)
+        document.querySelector('#user-info').append(myQuizTable)
     })
     // display list of quizzes created
+}
+//delete my quizzes
+document.addEventListener('click', event => {
+    if(event.target.className === 'delete-button')
+    handleDelete(event.target)
+})
+
+const handleDelete = (target) => {
+    fetch('http://localhost:3000/quizzes')
+    .then(res => res.json())
+    .then(quizzes => {
+        let quiz = quizzes.find(quiz => quiz.id == target.dataset.id)
+        console.log(quiz)
+        deleteQuiz(quiz)
+        // remove('td')?
+    })
+}
+
+const deleteQuiz = (quiz) => {
+    fetch('http://localhost:3000/quizzes' + '/' + `${quiz.id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(quiz)
+    })
+    .then(res => res.json())
+    .then(quiz => {
+        myQuizTable.remove()
+    })
 }

@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
  window.onload = function() {
     document.querySelector('.user-form').style.display = 'none';
+    // document.querySelector('.')
   };
 
  //event listnener to dipslay user creation form 
@@ -124,6 +125,10 @@ document.addEventListener('click', function(event){
 
 
 function displayQuizTitle(category){
-   return `<li class="quiz">${category.quizzes.map(quiz => quiz.title)}</li>`
+    let values = ""
+    let quizzes = category.quizzes;
+    for (const key in quizzes){values= values.concat("<li class=\"quiz\">"+ quizzes[key]['title'] + "</li>");}
+    console.log(values)
+    return values
 }
 
