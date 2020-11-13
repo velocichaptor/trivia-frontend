@@ -80,8 +80,8 @@ const displayMyQuizzes = (target) => {
             myQuizTable = document.createElement('table')
             myQuizTable.setAttribute('data-id', `${quiz.id}`)
           myQuizTable.innerHTML += 
-           `<tr><td>${quiz.title}</td></tr>
-            <tr><td><img src=${quiz.url}></td></tr>
+           `<tr><td><h4>${quiz.title}</h4></td></tr>
+            <tr><td><img style='width: 150px;' src=${quiz.url}></td></tr>
             <tr><td><button data-id="${quiz.id}" class="delete-button">Delete?</button></td></tr>
             <tr><td><button data-id="${quiz.id}" class="edit-button">Edit?</button></td></tr>
             </tr>`  

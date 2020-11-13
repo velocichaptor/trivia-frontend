@@ -116,7 +116,7 @@ document.addEventListener('click', function(event){
             })
        }else if (event.target.className.includes('closed')){
             event.target.append(cat)
-            event.target.style = 'color:#2a9d8f'
+            event.target.style = 'font-size:20px; color: #F6AE2D;'
        }
        event.target.className.includes('closed')? event.target.className = 'category open':event.target.className = 'category closed'
       
