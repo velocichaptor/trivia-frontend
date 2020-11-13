@@ -66,11 +66,11 @@
   text-align: center;
   overflow: auto;
 }
-.trivia-container ::after{
-  content: " ";
-  clear: both;
-  display: table;
+
+#list-panel {
+  float: left;
 }
+
 /* div.hud-item{
   float: right;
 } */
@@ -83,7 +83,8 @@ ol{
 }
 
 #questions{
-  font-size: 2rem;
+  color: #F6AE2D;
+  font-size: 40px;
   text-align: center;
   
 }
