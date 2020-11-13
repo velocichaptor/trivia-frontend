@@ -30,11 +30,11 @@
    }
  }
 
- #hud{
+ /* #hud{
    text-align: left;
    justify-content: space-between;
    display: inline;
- }
+ } */
 .hud-prefix{
   text-align: left;
   font-size: 2rem;
@@ -62,7 +62,14 @@
  }
 
 .trivia-container{
-  width: 600px;
+  width:100%;
+  text-align: center;
+  overflow: auto;
+}
+.trivia-container ::after{
+  content: " ";
+  clear: both;
+  display: table;
 }
 /* div.hud-item{
   float: right;
@@ -75,3 +82,8 @@ ol{
   font-size: 2rem;
 }
 
+#questions{
+  font-size: 2rem;
+  text-align: center;
+  
+}

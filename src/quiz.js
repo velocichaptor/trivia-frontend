@@ -37,7 +37,7 @@ function renderQuizzes(quiz){
                     `<li id="choice-container" class="false">${(questionsIndex[key]['wronganswer2'])}</li>`,
                     `<li id="choice-container" class="false">${(questionsIndex[key]['wronganswer3'])}</li>`
                     ].sort(() => Math.random() - 0.5).join('')
-                    let olElements = (`<h2>${(questionsIndex[key]['ask'])}</h2>
+                    let olElements = (`<h2 id="questions">${(questionsIndex[key]['ask'])}</h2>
                     <ol class="quest" data-id="${questionsIndex[key]['id']}">
                      ${answers}
                     </ol>`)
