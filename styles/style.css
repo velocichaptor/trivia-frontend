@@ -4,14 +4,14 @@
 
  */ */
 
-  body {
+  /* body {
     display: grid;
     grid-template-columns: 2fr 8fr
   }
 img{
   width: 400px;
   height: 400px;
-}
+} */
   /* .quest {
     display: flex;
     margin: 0.8rem;
@@ -30,4 +30,3 @@ img{
     height: 100%;
     overflow: auto;
     background-color: #86BBD8;
-  } */
