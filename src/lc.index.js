@@ -72,17 +72,21 @@ const displayMyQuizzes = (target) => {
     .then(res => res.json())
     .then(quizzes => {
         let myQuizArray = quizzes.filter(quiz => quiz.user_id == target.parentElement.dataset.id)
-        myQuizArray.forEach(quiz => {
+        
+        if (myQuizArray.length == 0)
+        alert('You currently have no quizzes.')
+        else
+            myQuizArray.forEach(quiz => {
             myQuizTable = document.createElement('table')
             myQuizTable.setAttribute('data-id', `${quiz.id}`)
           myQuizTable.innerHTML += 
-           `<tr><td>${quiz.title}</td></tr>
-            <tr><td><img src=${quiz.url}></td></tr>
+           `<tr><td><h4>${quiz.title}</h4></td></tr>
+            <tr><td><img style='width: 150px;' src=${quiz.url}></td></tr>
             <tr><td><button data-id="${quiz.id}" class="delete-button">Delete?</button></td></tr>
             <tr><td><button data-id="${quiz.id}" class="edit-button">Edit?</button></td></tr>
             </tr>`  
+            document.querySelector('#user-info').append(myQuizTable)
         })
-        document.querySelector('#user-info').append(myQuizTable)
     })
     // display list of quizzes created
 }
@@ -113,7 +117,6 @@ const deleteQuiz = (quiz) => {
     })
     .then(res => res.json())
     .then(quiz => {
-        myQuizTable.remove()
-
+        myQuizTable.remove(quiz)
     })
 }
