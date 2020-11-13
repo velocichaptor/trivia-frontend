@@ -49,27 +49,30 @@
 		</ul>
   </div>
   <div class="container">
-    <div id="game" class="justify-center flex-column" >
+    <!-- <div id="game" class="justify-center flex-column" > -->
       <div id="hud">
-      <div class="hud-item">
-          <p id="progressText" class="hud-prefix">
-          </p>
-          <div class="progressBar">
-            <div id="progressBarFull"></div>
-          </div>
-          <div class="hud-item">
-            <p class="hud prefix">
-              Score
+        <div class="hud-item">
+            <p id="progressText" class="hud-prefix">
+              Question 
             </p>
-            <h1 class="hud-main-tex">
-              0
-            </h1>
-          </div>
-        </div>
+            <div id="progressBar">
+              <div id="progressBarFull"></div>
+            </div>
+            <div class="hud-item">
+              <p class="hud-prefix">
+                Score
+              </p>
+              <h1 class="hud-main-text" id="score">
+                0
+              </h1>
+            </div>
+            <div class="trivia-container">
+              <div id="show-panel"></div>
+              <div id="question-panel"></div>
+            </div>
       </div>
-        <div id="show-panel"></div>
-        <div id="question-panel"></div>
-    </div>
+    <!-- </div> -->
+  </div>
   </div>
 <!-- create new quiz button -->
 <div>
@@ -93,7 +96,7 @@
       </div>
 
 <!-- New Question Create Button -->
-<div>
+<div class="question-form">
     <p style="text-align:center">
         <!-- <button class="btn btn-success" id="new-question-btn">Create Question</button> -->
       </p>

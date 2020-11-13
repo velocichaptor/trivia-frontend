@@ -19,7 +19,7 @@ let dropdown = qs('.dropdown');
 let categoryData 
 
 
-
+// in page load, we want to load the following functions.
 document.addEventListener('DOMContentLoaded', () =>{
     fetchCategories();
     handleNameFormListener();
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () =>{
 
  window.onload = function() {
     document.querySelector('.user-form').style.display = 'none';
-    // document.querySelector('.')
+ 
   };
 
  //event listnener to dipslay user creation form 
@@ -74,6 +74,7 @@ function handleNameFormListener(event){
       
     })
 }
+//function to display user information. This is provided to the fetch request.
 function displayUser(user){
     userInfo.setAttribute('data-id', `${user.id}`)
     userInfo.innerHTML = `<ul><li>${user.name}</li>
