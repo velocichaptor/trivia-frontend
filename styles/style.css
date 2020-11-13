@@ -8,3 +8,26 @@
     display: grid;
     grid-template-columns: 2fr 8fr
   }
+img{
+  width: 400px;
+  height: 400px;
+}
+  /* .quest {
+    display: flex;
+    margin: 0.8rem;
+    width: 100px;
+    border-radius: 4px;
+    min-width: 80rem;
+  } */
+
+  /* .container{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #86BBD8;
+  } */

@@ -114,5 +114,6 @@ const deleteQuiz = (quiz) => {
     .then(res => res.json())
     .then(quiz => {
         myQuizTable.remove()
+
     })
 }

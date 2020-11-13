@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () =>{
     handleNameFormListener();
     fetchQuiz()
 
+
  })
 
  window.onload = function() {
@@ -63,24 +64,26 @@ function handleNameFormListener(event){
        }
        fetch(userURL, reqObj)
        .then(resp => resp.json())
-       .then(newUser => {
-           if(newUser.error){
-               alert(newUser.error)
+       .then(user => {
+           if(user.error){
+               alert(user.error)
            }else {
-            userInfo.setAttribute('data-id', `${newUser.id}`)
-            userInfo.innerHTML = `<ul><li>${newUser.name}</li>
-            <li>${newUser.total_score}</li>
-            </ul>
-            <button class="my-quizzes-button" type="button">Edit My Quizzes</button>`
-            userForm.style.display = 'none'
+           displayUser(user)
            }
        })
       
     })
 }
+function displayUser(user){
+    userInfo.setAttribute('data-id', `${user.id}`)
+    userInfo.innerHTML = `<ul><li>${user.name}</li>
+    <li class="score">${user.total_score}</li>
+    </ul>
+    <button class="my-quizzes-button" type="button">Edit My Quizzes</button>`
+    userForm.style.display = 'none'
+}
 
-
-// fetch request to display user info 
+// fetch request to display categories
 function fetchCategories(){
     return fetch(catURL)
     .then(resp => resp.json())

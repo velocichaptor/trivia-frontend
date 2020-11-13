@@ -6,6 +6,9 @@
     <title>Trivia</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <link rel="stylesheet" href="styles/index.css" />
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+      <div id= "question-panel">
+  </div>
 </head>
 <body>
     <!-- create username button -->
@@ -24,15 +27,18 @@
             <input type="submit" name="submit" value="Create" class="submit"></input>
           </form>
     </div>
+    <!--Trivia list panel-->
     <div id="list-panel">
         <h3>Trivia Categories </h2>
 		<ul id="list">
 		</ul>
-	</div>
-  <div id="show-panel">
   </div>
-  <div id= "question-panel">
+  <div class="container">
+    <div id="show-panel">
+    </div>
+    <div id= "question-panel">
   </div>
+</div>
 <!-- create new quiz button -->
 <div>
 <p style="text-align:center">
@@ -57,7 +63,7 @@
 <!-- New Question Create Button -->
 <div>
     <p style="text-align:center">
-        <button id="new-question-btn">Create Question</button>
+        <button class="btn btn-success" id="new-question-btn">Create Question</button>
       </p>
     </div>
       <!-- Question Form-->
