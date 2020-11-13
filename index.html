@@ -6,6 +6,7 @@
     <title>Trivia</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <link rel="stylesheet" href="styles/index.css" />
+    
   
   </div>
 </head>
@@ -18,6 +19,52 @@
         <li> <button id="new-quiz-btn">Create a Quiz</button></li>
         <li> <button class="btn btn-success" id="new-question-btn">Add a Question</button></a></li>
       </ul>
+
+      <!-- new quiz form -->
+    <div class="create-form-div">
+      <form class="add-quiz-form">
+        <input type="text" name="title" value="" placeholder="Quiz Title" class="input-text"/>
+        <br />
+        <input type="text" name="url" value="" placeholder="Quiz image URL" class="input-text"/>
+        <br />
+        <!-- dropdown for existing categories here -->
+        <select name="category" id="select-category">
+          <!-- <option value="<category-name>"><category-name></option> -->
+        </select><br>
+        <input type="submit" name="submit" value="Create" class="submit"/>
+      </form>
+    </div>
+<!-- New Question Create Button -->
+<div class="question-form">
+  <p style="text-align:center">
+      <!-- <button class="btn btn-success" id="new-question-btn">Create Question</button> -->
+    </p>
+  </div>
+    <!-- Question Form-->
+      <div class="question-form-div">
+          <form class="add-question-form">
+            <input type="text" ask="ask" value="" placeholder="Question" class="input-text"/>
+            <br />
+            <input type="text" answer="answer" value="" placeholder="Correct Answer" class="input-text"/>
+            <br />
+            <input type="text" wronganswer1="wronganswer1" value="" placeholder="False Answer" class="input-text"/>
+            <br />
+            <input type="text" wronganswer2="wronganswer2" value="" placeholder="False Answer" class="input-text"/>
+            <br />
+            <input type="text" wronganswer3="wronganswer3" value="" placeholder="False Answer" class="input-text"/>
+            <br />
+            <select name="quiz" id="select-quiz">
+              <!-- <option value="<quiz-name>"><quiz-name></option> -->
+            </select>
+            <br />
+              <!-- add the quiz id somewhere? -->
+            </select><br>
+            <input type="submit" name="submit" value="Add to Quiz" class="submit"/>
+          </form>
+        </div>
+  </select><br>
+</form> 
+</div>
     
       </nav>
       <!-- create username button -->
@@ -81,52 +128,8 @@
     <!-- <button id="new-quiz-btn">Create a Quiz!</button> -->
   </p>
 </div>
-  <!-- new quiz form -->
-    <div class="create-form-div">
-        <form class="add-quiz-form">
-          <input type="text" name="title" value="" placeholder="Quiz Title" class="input-text"/>
-          <br />
-          <input type="text" name="url" value="" placeholder="Quiz image URL" class="input-text"/>
-          <br />
-          <!-- dropdown for existing categories here -->
-          <select name="category" id="select-category">
-            <!-- <option value="<category-name>"><category-name></option> -->
-          </select><br>
-          <input type="submit" name="submit" value="Create" class="submit"/>
-        </form>
-      </div>
+  
 
-<!-- New Question Create Button -->
-<div class="question-form">
-    <p style="text-align:center">
-        <!-- <button class="btn btn-success" id="new-question-btn">Create Question</button> -->
-      </p>
-    </div>
-      <!-- Question Form-->
-        <div class="question-form-div">
-            <form class="add-question-form">
-              <input type="text" ask="ask" value="" placeholder="Question" class="input-text"/>
-              <br />
-              <input type="text" answer="answer" value="" placeholder="Correct Answer" class="input-text"/>
-              <br />
-              <input type="text" wronganswer1="wronganswer1" value="" placeholder="False Answer" class="input-text"/>
-              <br />
-              <input type="text" wronganswer2="wronganswer2" value="" placeholder="False Answer" class="input-text"/>
-              <br />
-              <input type="text" wronganswer3="wronganswer3" value="" placeholder="False Answer" class="input-text"/>
-              <br />
-              <select name="quiz" id="select-quiz">
-                <!-- <option value="<quiz-name>"><quiz-name></option> -->
-              </select>
-              <br />
-                <!-- add the quiz id somewhere? -->
-              </select><br>
-              <input type="submit" name="submit" value="Add to Quiz" class="submit"/>
-            </form>
-          </div>
-    </select><br>
- </form> 
-</div>
 
 
 
