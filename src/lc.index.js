@@ -83,7 +83,6 @@ const displayMyQuizzes = (target) => {
            `<tr><td><h4>${quiz.title}</h4></td></tr>
             <tr><td><img style='width: 150px;' src=${quiz.url}></td></tr>
             <tr><td><button data-id="${quiz.id}" class="delete-button">Delete?</button></td></tr>
-            <tr><td><button data-id="${quiz.id}" class="edit-button">Edit?</button></td></tr>
             </tr>`  
             document.querySelector('#user-info').append(myQuizTable)
         })

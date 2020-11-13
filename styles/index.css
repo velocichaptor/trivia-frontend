@@ -55,6 +55,7 @@ body {
 }
 
 button {
+  padding: 8px;
   text-align: center;
   border: none;
   background-color: #F6AE2D;
@@ -62,18 +63,20 @@ button {
 }
 
 .submit {
-  padding: 5px;
+  padding: 8px;
   border: none;
   background-color: #F6AE2D;
  color: #2F4858;
 }
 
 input {
+  padding: 8px;
   background-color: #86BBD8;
  
 }
 
 select {
+  padding: 5px;
   background-color: #86BBD8;
 }
 
@@ -88,3 +91,6 @@ img {
   font-size: 20px;
 }
 
+li {
+  font-size: 30px;
+}

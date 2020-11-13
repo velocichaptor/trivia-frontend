@@ -78,7 +78,7 @@ function handleNameFormListener(event){
 function displayUser(user){
     userInfo.setAttribute('data-id', `${user.id}`)
     userInfo.innerHTML = `<ul><li>${user.name}</li>
-    <li class="score">${user.total_score}</li>
+    <li class="score">Total Score: ${user.total_score}</li>
     </ul>
     <button class="my-quizzes-button" type="button">Edit My Quizzes</button>`
     userForm.style.display = 'none'
