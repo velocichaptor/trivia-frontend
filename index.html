@@ -6,8 +6,7 @@
     <title>Trivia</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css" />
     <link rel="stylesheet" href="styles/index.css" />
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
-      <div id= "question-panel">
+  
   </div>
 </head>
 <body>
@@ -39,12 +38,29 @@
 		<ul id="list">
 		</ul>
   </div>
-
-    <div id="show-panel">
+  <div class="container">
+    <div id="game" class="justify-center flex-column" >
+      <div id="hud">
+      <div class="hud-item">
+          <p id="progressText" class="hud-prefix">
+          </p>
+          <div class="progressBar">
+            <div id="progressBarFull"></div>
+          </div>
+          <div class="hud-item">
+            <p class="hud prefix">
+              Score
+            </p>
+            <h1 class="hud-main-tex">
+              0
+            </h1>
+          </div>
+        </div>
+      </div>
+        <div id="show-panel"></div>
+        <div id="question-panel"></div>
     </div>
-    <div id= "question-panel">
-
-</div>
+  </div>
 <!-- create new quiz button -->
 <div>
 <p style="text-align:center">

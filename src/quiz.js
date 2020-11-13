@@ -23,17 +23,17 @@ function renderQuizzes(quiz){
                 let values = []
                 for(let key in questionsIndex) { 
                     
-                    const answers = [`<li class="true">${(questionsIndex[key]['answer'])}</li>`,
-                    `<li class="false">${(questionsIndex[key]['wronganswer1'])}</li>`,
-                    `<li class="false">${(questionsIndex[key]['wronganswer2'])}</li>`,
-                    `<li class="false">${(questionsIndex[key]['wronganswer3'])}</li>`
+                    const answers = [`<li id="choice-container" class="true">${(questionsIndex[key]['answer'])}</li>`,
+                    `<li id="choice-container" class="false">${(questionsIndex[key]['wronganswer1'])}</li>`,
+                    `<li id="choice-container" class="false">${(questionsIndex[key]['wronganswer2'])}</li>`,
+                    `<li id="choice-container" class="false">${(questionsIndex[key]['wronganswer3'])}</li>`
                     ].sort(() => Math.random() - 0.5).join('')
                     let olElements = (`<h3>${(questionsIndex[key]['ask'])}</h3>
                     <ol class="quest" data-id="${questionsIndex[key]['id']}">
                      ${answers}
                     </ol>`)
 
-                values.push(olElements);
+                    values.push(olElements);
      
                 }
 
